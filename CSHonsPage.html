@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>B.Sc. Hons CS Course</title>
+    <style>
+        body {
+            line-height: 1.6;
+            margin: 20px;
+            padding-bottom: 50px;
+        }
+
+        h1,
+        h2 {
+            text-align: center;
+        }
+
+        .course-details {
+            margin-bottom: 30px;
+        }
+
+        #styleButton {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>B.Sc. Hons Computer Science Course</h1>
+
+    <div class="course-details">
+        <h2>Course Details:</h2>
+        <p><strong>Fee:</strong> Mention the fee details here.</p>
+        <p><strong>Eligibility Criteria:</strong> Specify the eligibility criteria here.</p>
+        <p><strong>Papers:</strong> Papers with names and credits:</p>
+        <ul>
+            <li>Internet Technologies - 6 credits</li>
+            <li>Theory of Computation - 6 credits</li>
+            <li>System Programming - 6 credits</li>
+            <li>Theory of Computation - 6 credits</li>
+        </ul>
+        <p><strong>Future Possibilities:</strong>idk</p>
+    </div>
+
+    <button id="styleButton">Style Page</button>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $('#styleButton').click(function () {
+            $('body').css({
+                'background-color': '#f4f4f4',
+                'padding': '20px'
+            });
+            $('h1, h2').css({
+                'color': '#007bff'
+            });
+            $('.course-details').css({
+                'background-color': '#fff',
+                'padding': '20px',
+                'border-radius': '5px',
+                'box-shadow': '0 0 10px rgba(0, 0, 0, 0.1)'
+            });
+            $('#styleButton').hide();
+        });
+    </script>
+
+</body>
+
+</html>

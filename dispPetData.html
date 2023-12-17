@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pets Information</title>
+    <style>
+        body {
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .pet-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .pet-card {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 250px;
+            text-align: left;
+        }
+
+        .pet-card h2 {
+            margin-top: 0;
+        }
+
+        .pet-card p {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Pets Information</h1>
+
+    <div class="pet-container" id="petsContainer">
+        <!-- Pet information will be displayed here -->
+    </div>
+
+    <script>
+        const petsContainer = document.getElementById('petsContainer');
+
+        // AJAX request to load JSON data from pets.json file
+        const xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+            if (this.readyState === 4 && this.status === 200) {
+                const petsData = JSON.parse(this.responseText);
+                displayPets(petsData);
+            }
+        };
+        xhr.open('GET', 'pets.json', true);
+        xhr.send();
+
+        // Function to display pets' information
+        function displayPets(pets) {
+            pets.forEach(pet => {
+                const petCard = document.createElement('div');
+                petCard.classList.add('pet-card');
+                petCard.innerHTML = `
+          <h2>${pet.name}</h2>
+          <p><strong>Type:</strong> ${pet.type}</p>
+          <p><strong>Age:</strong> ${pet.age}</p>
+          <p><strong>Weight:</strong> ${pet.weight} lbs</p>
+          <p><strong>Likes:</strong> ${pet.likes}</p>
+        `;
+                petsContainer.appendChild(petCard);
+            });
+        }
+    </script>
+
+</body>
+
+</html>

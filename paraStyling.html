@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Style Changer</title>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        p {
+            font-size: 18px;
+        }
+
+        .button-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 10px;
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <p id="paragraph">This is a paragraph.</p>
+
+    <div class="button-grid">
+        <button onclick="changeStyle('color', 'red')">Red</button>
+        <button onclick="changeStyle('color', 'green')">Green</button>
+        <button onclick="changeStyle('color', 'blue')">Blue</button>
+        <button onclick="changeStyle('fontSize', '10px')">10</button>
+        <button onclick="changeStyle('fontSize', '20px')">20</button>
+        <button onclick="changeStyle('fontSize', '30px')">30</button>
+        <button onclick="changeStyle('fontFamily', 'Arial')">Arial</button>
+        <button onclick="changeStyle('fontFamily', 'Times New Roman')">Times New Roman</button>
+        <button onclick="changeStyle('fontFamily', 'Courier New')">Courier New</button>
+    </div>
+
+    <script>
+        const changeStyle = (styleProp, value) => {
+            const paragraph = document.getElementById('paragraph');
+            switch (styleProp) {
+                case 'color':
+                    paragraph.style.color = value;
+                    break;
+                case 'fontSize':
+                    paragraph.style.fontSize = value;
+                    break;
+                case 'fontFamily':
+                    paragraph.style.fontFamily = value;
+                    break;
+                default:
+                    break;
+            }
+        };
+    </script>
+
+</body>
+
+</html>

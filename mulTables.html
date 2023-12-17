@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Multiplication Tables</title>
+</head>
+
+<body>
+
+    <div id="multiplicationTables"></div>
+
+    <script>
+        let currentNumber = 2;
+        let fontSize = 16;
+
+        const displayTables = () => {
+            let tables = '<table>';
+            for (let i = 1; i <= 10; i++) {
+                tables += `<tr style="font-size: ${fontSize}px; color: ${getRandomColor()}">`;
+                tables += `<td>${currentNumber} × ${i}</td>`;
+                tables += `<td>= ${currentNumber * i}</td>`;
+                tables += '</tr>';
+            }
+            tables += '</table>';
+            document.getElementById('multiplicationTables').innerHTML = tables;
+
+            currentNumber++;
+            fontSize += 2;
+            if (currentNumber > 10) {
+                clearInterval(interval);
+            }
+        };
+
+        const interval = setInterval(displayTables, 5000);
+
+        const getRandomColor = () => {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        };
+    </script>
+
+</body>
+
+</html>
