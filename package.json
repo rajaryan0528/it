@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "mysql": "^2.18.1",
-    "querystring": "^0.2.1"
-  }
-}
